@@ -186,6 +186,7 @@ function createReactiveObject(
   proxyMap: WeakMap<Target, any>
 ) {
   if (!isObject(target)) {
+    // 在开发模式中如果reactive(原始值)会有这个警告
     if (__DEV__) {
       console.warn(`value cannot be made reactive: ${String(target)}`)
     }

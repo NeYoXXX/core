@@ -101,7 +101,9 @@ class RefImpl<T> {
   public readonly __v_isRef = true
 
   constructor(value: T, public readonly __v_isShallow: boolean) {
+    // 原始类型
     this._rawValue = __v_isShallow ? value : toRaw(value)
+    // object类型
     this._value = __v_isShallow ? value : toReactive(value)
   }
 
